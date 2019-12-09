@@ -1,8 +1,10 @@
 node{
-  stage('SCM Checkout'){
-  git 'https://github.com/JhonMB/jhipster'
-  }
-  stage('Compile-Package'){
-  sh 'mvn package'
-  }
+    stage('SCM Checkout'){
+        tool name: 'maven-3', type: 'maven'
+        
+        git 'https://github.com/JhonMB/jhipster'
+    }
+    stage('Compile-Package'){
+        sh 'mvn package'
+    }
 }
